@@ -21,12 +21,30 @@ public class Foro1 {
         switch (option){
             case ("a"):
                 //Falta colocar el método para borrar en consola sin perder lo ingresado
+                //limpiarConsola();
                 System.out.println("Ingreso de nuevo usuario."); //Mensaje solo para probar si funciona la estructura
                 break;
             case ("b"):
                 //Agregado por Daniel, testeando el git
+                //limpiarConsola();
                 System.out.println("Por favor introduzca el carnet: ");
                 break;
         }
+        
     }
+    public static void limpiarConsola() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                // Limpia consola Windows
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Limpia consola Linux y Mac
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
