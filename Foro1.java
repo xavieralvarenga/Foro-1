@@ -23,6 +23,10 @@ public class Foro1 {
                 //Falta colocar el método para borrar en consola sin perder lo ingresado
                 System.out.println("Ingreso de nuevo usuario."); //Mensaje solo para probar si funciona la estructura
                 break;
+            case ("b"):
+                //Agregado por Daniel, testeando el git
+                System.out.println("Por favor introduzca el carnet: ");
+                break;
         }
     }
 }
