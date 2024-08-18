@@ -4,34 +4,55 @@ import java.util.Scanner;
 
 public class Foro1 {
     public static void main(String[] args) {
+        Map<String, String> students = new HashMap<>();
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("*******************************************");
-        System.out.println("Bienvenido a la base de alumnos UDB VIRTUAL");
-        System.out.println("*******************************************");
+        while (true) {
+            System.out.println("*******************************************");
+            System.out.println("Bienvenido a la base de alumnos UDB VIRTUAL");
+            System.out.println("*******************************************");
+            System.out.println("Por favor seleccione una opción:");
+            System.out.println("a. Ingreso de nuevo alumno (carnet/Nombre completo):");
+            System.out.println("b. Búsqueda de alumno, búsqueda por carnet:");
+            System.out.println("c. Eliminación de alumno, búsqueda por carnet:");
+            System.out.println("d. Mostrar todos los alumnos ingresados:");
+            System.out.println("e. Salir\n");
 
-        System.out.println("Por favor seleccione una opción:");
-        System.out.println("a. Ingreso de nuevo alumno (carnet/Nombre completo):");
-        System.out.println("b. Búsqueda de alumno, búsqueda por carnet:");
-        System.out.println("c. Eliminación de alumno, búsqueda por carnet:");
-        System.out.println("d. Mostrar todos los alumnos ingresados:\n");
+            String option = input.nextLine();
 
-        Scanner input = new Scanner(System.in); //Inicializamos el código scanner para leer la entrada del usuario
-        String option = input.nextLine(); //Utilizamos el objeto Scanner llamado input para leer toda la entrada
+            switch (option.toLowerCase()) {
+                case "a":
+                    limpiarConsola();
+                    System.out.println("Ingrese el carnet del alumno: ");
+                    String carnet = input.nextLine();
 
-        switch (option){
-            case ("a"):
-                //Falta colocar el método para borrar en consola sin perder lo ingresado
-                limpiarConsola();
-                System.out.println("Ingreso de nuevo usuario."); //Mensaje solo para probar si funciona la estructura
-                break;
-            case ("b"):
-                //Testing
-                limpiarConsola();
-                System.out.println("Por favor introduzca el carnet: ");
-                break;
+                    if (students.containsKey(carnet)) {
+                        System.out.println("Este carnet ya ha sido registrado. Intente con otro.");
+                        break;
+                    }
+
+                    System.out.println("Ingrese el nombre completo del alumno: ");
+                    String nombre = input.nextLine();
+
+                    students.put(carnet, nombre);
+                    System.out.println("Alumno ingresado exitosamente.");
+                    break;
+
+                // Otras opciones (b, c, d, e) aquí...
+
+                default:
+                    limpiarConsola();
+                    System.out.println("Opción no válida. Por favor intente de nuevo.");
+                    break;
+            }
+
+            // Pausar para que el usuario pueda leer el mensaje antes de limpiar la consola.
+            System.out.println("\nPresione Enter para continuar...");
+            input.nextLine();
+            limpiarConsola();
         }
-        
     }
+
     public static void limpiarConsola() {
         try {
             if (System.getProperty("os.name").contains("Windows")) {
@@ -46,5 +67,6 @@ public class Foro1 {
             e.printStackTrace();
         }
     }
-    
 }
+
+
