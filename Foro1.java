@@ -60,6 +60,12 @@ public class Foro1 {
                 case "c":
                     break;
                 case "d":
+                    limpiarConsola();
+                    System.out.print("Listado de alumnos: ");
+                    for (Map.Entry<String,String>entry:students.entrySet()){
+                        System.out.println("Carnet:"+entry.getKey()+"Nombre:"+entry.getValue());
+                    }
+
                     break;
                 case "e":
                     validator = false;
