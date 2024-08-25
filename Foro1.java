@@ -58,6 +58,16 @@ public class Foro1 {
                     }
                     break;
                 case "c":
+                    limpiarConsola();
+                    System.out.println("Ingrese el carnet del alumno que desea eliminar: ");
+                    carnet = input.nextLine();
+                    if (students.containsKey(carnet)){
+                        students.remove(carnet);
+                        System.out.println("Alumno fue eliminado correctamente.");
+                    }
+                    else {
+                        System.out.println("Alumno no encontrado, por favor vuelva a intentarlo.");
+                    }
                     break;
                 case "d":
                     limpiarConsola();
